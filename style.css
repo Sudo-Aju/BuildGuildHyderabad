@@ -86,7 +86,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  height: 56px;
+  /* Increased height to accommodate larger logo */
+  height: 120px; 
   position: sticky;
   top: 0;
   z-index: 100;

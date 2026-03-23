@@ -13,7 +13,8 @@
 <body>
 
 <nav class="grid-bg">
-  <a href="#" class="nav-logo">
+  <a href="#" class="nav-logo" style="display: flex; align-items: center;">
+    <img src="akahl.png" alt="AKAH Logo" style="height: 60px; width: auto; filter: brightness(0) invert(1); margin-right: 15px;" />
     <span style="font-weight: 800; letter-spacing: 0.05em;">BLUEPRINT AKAHYD</span>
   </a>
   <ul class="nav-links">
@@ -235,37 +236,37 @@
   <div class="section-inner">
     <div class="section-label">Organizers</div>
     <h2>Meet the Team</h2>
-    <p class="section-lead">Reach out to the organizing team if you have any questions!</p>
+    <p class="section-lead">Reach out to the organizing committee if you have any questions!</p>
     
     <div class="org-grid">
       <div class="org-card">
         <div class="org-pfp">AP</div>
         <div class="org-name">Azmeer Pirani</div>
-        <div class="org-post">Lead Organizer & Hardware Lead</div>
+        <div class="org-post">Principal Executive Architect</div>
         <a href="https://hackclub.com/slack" class="org-contact">Slack: @AjuBrokeHisHead</a>
       </div>
       <div class="org-card">
         <div class="org-pfp" style="background: var(--bp-lighter); color: white; border:none;">AA</div>
         <div class="org-name">Ayan Andani</div>
-        <div class="org-post">Organizer</div>
+        <div class="org-post">Omnichannel Engagement Strategist</div>
         <a href="https://hackclub.com/slack" class="org-contact">Slack: @andaniayan</a>
       </div>
       <div class="org-card">
         <div class="org-pfp" style="background: var(--bp-lighter); color: white; border:none;">IA</div>
         <div class="org-name">Iliyan Ashwani</div>
-        <div class="org-post">Organizer</div>
+        <div class="org-post">Fiduciary Allocation Director</div>
         <a href="https://hackclub.com/slack" class="org-contact">Slack: @iliyanashwani5</a>
       </div>
       <div class="org-card">
         <div class="org-pfp" style="background: var(--bp-lighter); color: white; border:none;">NN</div>
         <div class="org-name">Niza Nurani</div>
-        <div class="org-post">Organizer</div>
+        <div class="org-post">Corporate Synergy Architect</div>
         <a href="https://hackclub.com/slack" class="org-contact">Slack: @nizanurani46</a>
       </div>
       <div class="org-card">
         <div class="org-pfp" style="background: var(--bp-lighter); color: white; border:none;">AV</div>
-        <div class="org-name">Arman Vadsariya</div>
-        <div class="org-post">Organizer</div>
+        <div class="org-name">Arman Vadsaria</div>
+        <div class="org-post">Logistical Execution Commander</div>
         <a href="https://hackclub.com/slack" class="org-contact">Slack: @avadsariya0</a>
       </div>
     </div>
@@ -283,7 +284,7 @@
         <div class="faq-a">
           <br>
           <p>This is a hands-on mini hackathon where you will learn the fundamentals of drone assembly, electronics, and flight control. By the end of the session, you will have built a drone and tested it using custom firmware to see it take flight!</p>
-          <br>
+          
         </div>
       </div>
 
@@ -292,7 +293,7 @@
         <div class="faq-a">
           <br>
           <p>Not at all! This workshop is designed for beginners. We will guide you through every step, from tightening the first screw to uploading the code.</p>
-          <br>
+          
         </div>
       </div>
 
@@ -301,7 +302,7 @@
         <div class="faq-a">
           <br>
           <p>Please bring a laptop (and its charger) so you can install the necessary tools to flash the custom firmware onto your drone. All drone parts, tools, and safety gear will be provided by us.</p>
-          <br>
+          
       
         </div>
       </div>
@@ -311,7 +312,7 @@
         <div class="faq-a">
           <br>
           <p>We will be focusing on open-source flight control software. You will learn how to configure "PIDs" (Proportional-Integral-Derivative) and calibrate sensors to ensure your drone stays stable in the air.</p>
-          <br>
+          
         </div>
       </div>
 
@@ -320,7 +321,7 @@
         <div class="faq-a">
           <br>
           <p>Safety is our priority! All initial testing will be done on tethered stands or in a designated "netted" safety zone within the Academy to ensure no one gets hurt and no drones are damaged during the learning process.</p>
-          <br>
+          
         </div>
       </div>
 
@@ -329,7 +330,7 @@
         <div class="faq-a">
           <br>
           <p>Yes! We will provide a full lunch at 1:00 PM and light snacks at 4:00 PM before you head home. Please let the organizers know if you have any specific dietary restrictions.</p>
-          <br>
+          
         </div>
       </div>
       
@@ -338,8 +339,51 @@
         <div class="faq-a">
           <br>
           <p>Feel free to reach out to the organizing team on Slack (@AjuBrokeHisHead, @iliyanashwani5, @nizanurani46, @andaniayan, @avadsariya0), via email at azmeerpirani3@gmail.com, or reply to your registration confirmation email.</p>
-          <br>
+        
         </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What will I actually build? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>At Blueprint Hyderabad, we’re focusing on drone technology! You'll get hands-on experience with hardware assembly, flight firmware, and microcontrollers like the RP2040. Whether you're building from a "blueprint" or starting a custom project, you'll leave with something real.</p></div>
+      </div>
+
+      </div>
+
+       <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Where is the venue? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>The venue is to be decided!</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What about Parental Guide? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>To be given!</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is Hack Club Blueprint? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>Hack Club Blueprint is a program by <a href="https://hackclub.com" target="_blank">Hack Club</a> a nonprofit with 50,000+ teen makers. Blueprint gives teens the parts and guidance to build hardware projects, and grants up to $400 USD for advanced builds. <a href="https://blueprint.hackclub.com" target="_blank">Learn more</a></p></div>
+      </div>
+
+      
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Can I come with a team? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>Absolutely! You can come with friends or find a team on the day. Hardware is often better as a team sport, especially when you're troubleshooting circuit boards or flight code.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What if I don't finish my project? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>No worries! The goal of Blueprint is to get you started. You’ll have the community, the Slack channel, and the resources to keep building and shipping long after the event ends.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is Build Guild? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>Build Guild is a 1-day hardware meetup organized as part of Hack Club Blueprint's global Build Guilds week (April 13-19). It's free and Hack Club funds the event it is and open to anyone who wants to build hardware, attend workshops, demo projects, and meet their community!</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is it really free? <span class="faq-arrow">▾</span></button>
+        <div class="faq-a"><br><p>Yes, 100% free! Hack Club funds us per attendee. You pay nothing.</p></div>
       </div>
 
     </div>
