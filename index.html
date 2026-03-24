@@ -10,7 +10,7 @@
   <link rel="icon" type="image/webp" href="stickers-1ea6ded3.webp" />
   <link href="./style.css" rel="stylesheet">
 </head>
-<body>
+<body class="intro">
 
 <nav class="grid-bg">
   <a href="#" class="nav-logo" style="display: flex; align-items: center;">
@@ -36,9 +36,28 @@
     An intensive, 7-hour hardware engineering sprint. Don't just fly a drone—build the frame, solder the flight controller, flash the firmware, and tune the PIDs from scratch.<br><br>
     <strong>April 18th, 9:00 AM - 4:00 PM.</strong>
   </p>
+  <div class="hero-grid-light"></div>
   <div class="hero-actions">
     <a href="#rsvp" class="btn btn-primary">Join Blueprint</a>
     <a href="#agenda" class="btn btn-outline">View Itinerary</a>
+  </div>
+  <div class="hero-countdown" aria-label="Event countdown">
+    <div class="date-cell">
+      <div class="date-cell-value" id="countdown-days">00</div>
+      <div class="date-cell-label">Days</div>
+    </div>
+    <div class="date-cell">
+      <div class="date-cell-value" id="countdown-hours">00</div>
+      <div class="date-cell-label">Hours</div>
+    </div>
+    <div class="date-cell">
+      <div class="date-cell-value" id="countdown-minutes">00</div>
+      <div class="date-cell-label">Min</div>
+    </div>
+    <div class="date-cell">
+      <div class="date-cell-value" id="countdown-seconds">00</div>
+      <div class="date-cell-label">Sec</div>
+    </div>
   </div>
   <div class="date-strip">
     <div class="date-cell">

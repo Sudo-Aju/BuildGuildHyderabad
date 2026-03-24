@@ -45,17 +45,25 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   font-size: 18px;
   padding: 8px 24px;
-  transition: background-color 0.15s, color 0.15s, transform 0.12s, box-shadow 0.12s;
+  transition: background-color 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
   font-family: var(--font-heading);
   font-weight: 800;
   text-decoration: none;
   border-radius: 0;
   letter-spacing: 0.01em;
+  transform-origin: center;
+  will-change: transform, box-shadow;
 }
 
 .btn:focus, .btn:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
 }
 
 .btn-primary {
@@ -86,7 +94,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  /* Increased height to accommodate larger logo */
+
   height: 120px; 
   position: sticky;
   top: 0;
@@ -150,6 +158,23 @@ nav {
   .nav-links { display: none; }
 }
 
+body.intro *:not(script):not(style) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: none;
+}
+
+.intro-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.intro-item.entered {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hero {
   min-height: 85vh;
   display: flex;
@@ -161,6 +186,27 @@ nav {
   position: relative;
   overflow: hidden;
 }
+
+.hero-grid-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0) 40%);
+  -webkit-mask: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0) 40%);
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.5));
+  opacity: 0;
+  z-index: -1;
+}
+
+.hero:hover .hero-grid-light {
+  opacity: 1;
+}
+
 
 .hero-label {
   font-size: 12px;
@@ -202,6 +248,56 @@ nav {
   font-weight: 700;
 }
 
+.hero-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 26px auto 24px;
+  flex-wrap: wrap;
+  border: 2px solid rgba(255,255,255,0.15);
+  background: var(--bp-darker);
+  padding: 14px;
+  position: relative;
+}
+
+.hero-countdown::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid;
+  border-image: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 50%, transparent 100%) 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  box-sizing: content-box;
+}
+
+.hero-countdown:hover::before {
+  opacity: 1;
+}
+
+.hero-countdown .date-cell {
+  border: 1px solid rgba(255,255,255,0.15);
+  min-width: 82px;
+  padding: 8px 12px;
+}
+
+.hero-countdown .date-cell-label {
+  font-size: 10px;
+  margin-top: 2px;
+  color: rgba(255,255,255,0.65);
+}
+
+.hero-countdown .date-cell-value {
+  font-size: 38px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -221,6 +317,26 @@ nav {
   justify-content: center;
   border: 2px solid rgba(255,255,255,0.15);
   background: var(--bp-darker);
+  position: relative;
+}
+
+.date-strip::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid;
+  border-image: radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 50%), rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 50%, transparent 100%) 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  box-sizing: content-box;
+}
+
+.date-strip:hover::before {
+  opacity: 1;
 }
 
 .date-cell {
@@ -758,3 +874,4 @@ footer {
 .org-name {
   font-size: 16px;
 }
+
