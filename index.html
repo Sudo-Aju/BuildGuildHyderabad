@@ -9,133 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/webp" href="stickers-1ea6ded3.webp" />
   <link href="./style.css" rel="stylesheet">
-  <style>
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      .nav-hamburger { display: flex; }
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #081c35;
-        flex-direction: column;
-        padding: 20px;
-        gap: 16px;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        z-index: 999;
-      }
-      .nav-links.open { display: flex; }
-      nav { position: relative; }
-    }
-
-    .sponsor-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.sponsor {
-  width: 160px;
-  height: 80px;
-  border: 2px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.02);
-  transition: all 0.3s ease;
-}
-
-.sponsor img {
-  max-width: 80%;
-  max-height: 60%;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
-  transition: all 0.3s ease;
-}
-
-.sponsor:hover {
-  border-color: rgba(255,255,255,0.2);
-  transform: translateY(-3px);
-}
-
-.sponsor:hover img {
-  filter: brightness(0) invert(1);
-  opacity: 1;
-}
-
-    .subteam-section { margin-top: 48px; }
-    .subteam-label {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 16px;
-    }
-    .subteam-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .subteam-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 16px 20px;
-      background: var(--bp-darker);
-    }
-    .subteam-card h4 {
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--bp-warning);
-      margin: 0 0 10px;
-    }
-    .subteam-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .subteam-card ul li {
-      font-size: 14px;
-      color: rgba(255,255,255,0.65);
-    }
-  </style>
 </head>
 <body class="intro">
 
 <nav class="grid-bg">
-  <a href="#" class="nav-logo" style="display: flex; align-items: center;">
-    <span style="font-weight: 800; letter-spacing: 0.05em;">BLUEPRINT AKAHYD</span>
+  <a href="#" class="nav-logo">
+    <span>BLUEPRINT AKAHYD</span>
   </a>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -146,6 +25,7 @@
     <li><a href="#activities">Activities</a></li>
     <li><a href="#organizers">Team</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="#travel">Travel</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
     <li><a href="#rsvp" class="nav-cta btn">Register</a></li>
   </ul>
@@ -200,6 +80,8 @@
   </div>
 </section>
 
+<!-- marquee injected here by JS -->
+
 <section class="section" id="overview">
   <div class="section-inner">
     <div class="section-label">Our Mission</div>
@@ -227,10 +109,10 @@
 </section>
 
 <section class="section darker" id="safety">
-  <div class="section-inner" style="text-align: center;">
+  <div class="section-inner safety-inner">
     <div class="section-label">Safety First</div>
     <h2>Strict Safety Protocols</h2>
-    <p class="section-lead" style="margin: 0 auto;">
+    <p class="section-lead">
       Building drones involves high-discharge LiPo batteries and fast-spinning carbon propellers. We maintain a strict zero-tolerance policy for unsafe behavior.<br><br>
       Protective eyewear is provided and mandatory during assembly. <strong>No propellers will be attached until the drone is inside the designated, fully-netted indoor testing zone.</strong> All test flights are supervised by trained mentors at all times.
     </p>
@@ -248,7 +130,7 @@
         <div class="ag-time">08:30 AM</div>
         <div class="ag-line"></div>
         <div class="ag-body">
-          <h4>Doors Open & Kit Distribution</h4>
+          <h4>Doors Open &amp; Kit Distribution</h4>
           <p>Check-in at The Aga Khan Academy, set up your workstation, and receive your official Blueprint hardware kit and safety goggles.</p>
         </div>
       </div>
@@ -257,7 +139,7 @@
         <div class="ag-time">09:00 AM</div>
         <div class="ag-line"></div>
         <div class="ag-body">
-          <h4>Opening Ceremony & Safety Briefing</h4>
+          <h4>Opening Ceremony &amp; Safety Briefing</h4>
           <p>Welcome to Blueprint! We'll cover the rules of the lab, safety protocols, and the mission for the day.</p>
         </div>
       </div>
@@ -284,7 +166,7 @@
         <div class="ag-time">01:00 PM</div>
         <div class="ag-line"></div>
         <div class="ag-body">
-          <h4 style="color: var(--bp-success);">Lunch & Maker Networking</h4>
+          <h4 style="color: var(--bp-success);">Lunch &amp; Maker Networking</h4>
           <p>A full catered lunch is provided. Step back, eat, and connect with fellow builders and the organizing team.</p>
         </div>
       </div>
@@ -311,8 +193,8 @@
         <div class="ag-time">04:00 PM</div>
         <div class="ag-line"></div>
         <div class="ag-body">
-          <h4>Snacks & Closing Ceremony</h4>
-          <p>Grab some light snacks. Final Q&A, completion certificates, group photo, and pack up.</p>
+          <h4>Snacks &amp; Closing Ceremony</h4>
+          <p>Grab some light snacks. Final Q&amp;A, completion certificates, group photo, and pack up.</p>
         </div>
       </div>
 
@@ -325,12 +207,12 @@
     <div class="section-label">Sponsored Workshop</div>
     <h2>PCB Design with EasyEDA Pro</h2>
     <p class="section-lead">Two hours of hands-on PCB design — sponsored by EasyEDA Pro and completely free for every attendee.</p>
-    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 32px;">
-      <div class="ov-card" style="border-top: 4px solid var(--bp-success);">
+    <div class="card-grid pcb-card-grid">
+      <div class="ov-card pcb-card-success">
         <span class="ov-icon wobble-1">What you'll do</span>
         <p>Design a real printed circuit board from scratch using EasyEDA Pro — a professional-grade tool used in industry. Mentors guide you step by step. No prior electronics experience needed.</p>
       </div>
-      <div class="ov-card" style="border-top: 4px solid var(--bp-warning);">
+      <div class="ov-card pcb-card-warning">
         <span class="ov-icon wobble-2">What you'll get</span>
         <p>Every attendee walks away with a <strong>$15 coupon</strong> to order their designed PCB delivered straight to their address — fully funded by EasyEDA Pro. Your first real PCB, on us.</p>
       </div>
@@ -347,8 +229,8 @@
         <h3>Join the Workshop!</h3>
         <p>Sign up to get access to the dashboard, final announcements, and to secure your hardware kit for the day.</p>
         <div class="perks">
-          <div class="perk"><div class="perk-mark"></div>All drone parts & tools provided</div>
-          <div class="perk"><div class="perk-mark"></div>Lunch & snacks included</div>
+          <div class="perk"><div class="perk-mark"></div>All drone parts &amp; tools provided</div>
+          <div class="perk"><div class="perk-mark"></div>Lunch &amp; snacks included</div>
           <div class="perk"><div class="perk-mark"></div>Design your first PCB with EasyEDA Pro</div>
           <div class="perk"><div class="perk-mark"></div>$15 coupon to order your PCB to your door</div>
           <div class="perk"><div class="perk-mark"></div>Meet fellow Hyderabad makers</div>
@@ -358,7 +240,7 @@
         <h3>Ready to build?</h3>
         <p>Click below to register. Spots for hardware kits are extremely limited!</p>
         <a href="https://blueprint.hackclub.com/guilds/invite/hyderabad-in" target="_blank" class="btn btn-primary">Register Now</a>
-        <p class="rsvp-note" style="margin-top: 15px;">Strictly for teenagers aged 13-18.</p>
+        <p class="rsvp-note">Strictly for teenagers aged 13-18.</p>
       </div>
     </div>
   </div>
@@ -467,7 +349,6 @@
             <li>Khafis Parmar</li>
             <li>Rabil Ramani</li>
             <li>Arhaan Manji</li>
-            <li>Ayaan Karani</li>
           </ul>
         </div>
         <div class="subteam-card">
@@ -489,89 +370,123 @@
     <div class="faq-list">
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What is Blueprint Hyderabad? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">What is Blueprint Hyderabad? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>A free, 1-day hardware event where you design your first PCB using EasyEDA Pro and build a drone from scratch. Part of Hack Club Blueprint, a global program by <a href="https://hackclub.com" target="_blank">Hack Club</a>, a nonprofit with 50,000+ teen makers. <a href="https://blueprint.hackclub.com" target="_blank">Learn more.</a></p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Do I need prior experience? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Do I need prior experience? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Not at all. This event is designed for beginners. Mentors guide you through every step of both the PCB workshop and the drone build.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What should I bring? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">What should I bring? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Bring a laptop and its charger — you'll need it for the EasyEDA Pro PCB workshop. All drone parts, tools, and safety gear are provided.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What is the EasyEDA Pro workshop? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">What is the EasyEDA Pro workshop? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>A 2-hour sponsored session where you design a real PCB from scratch using EasyEDA Pro. Every attendee receives a <strong>$15 coupon</strong> to order their board delivered to their address — fully funded by EasyEDA Pro. No electronics experience needed.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Where is the venue? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Where is the venue? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>The Aga Khan Academy, Hyderabad. <a href="https://www.agakhanacademies.org/hyderabad" target="_blank">View on map.</a></p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is it safe? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Is it safe? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Safety is our top priority. Protective eyewear is mandatory during assembly. No propellers are attached until the drone is inside the fully-netted indoor testing zone, and all flights are supervised by trained mentors.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What about parental guidance? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">What about parental guidance? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Students are supervised by trained mentors and organizers at all times. No consent form is required. Parents are welcome to contact us at <a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a> with any questions.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Will food be provided? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Will food be provided? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Yes — a full catered lunch at 1:00 PM and light snacks at 4:00 PM. Let the organizers know in advance if you have dietary restrictions.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I come with a team? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Can I come with a team? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Absolutely. You can come with friends or find a team on the day. Hardware is a team sport, especially when troubleshooting a drone build.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What if I don't finish? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">What if I don't finish? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>No worries. The goal is to get you started. You'll have the community, resources, and momentum to keep building long after the event ends.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is it really free? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Is it really free? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Yes, 100% free. Hack Club funds us per attendee. You pay nothing.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Who do I contact if I have more questions? <span class="faq-arrow">▾</span></button>
+        <button class="faq-q">Who do I contact if I have more questions? <span class="faq-arrow">▾</span></button>
         <div class="faq-a"><br>
           <p>Email us at <a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a> or reply to your registration confirmation.</p>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- second marquee injected here by JS -->
+
+<section class="section darker" id="travel">
+  <div class="section-inner">
+    <div class="section-label">Hack Club Gas</div>
+    <h2>Travel Reimbursement</h2>
+    <p class="section-lead">Can't drive to Blueprint? Hack Club's got your bus or train fare covered.</p>
+
+    <div class="travel-hero-card">
+      <div class="travel-hero-icon">🚌</div>
+      <div class="travel-hero-text">
+        <h3>Trains &amp; Buses Reimbursed</h3>
+        <p>If you're unable to drive to the event, Hack Club reimburses the equivalent mileage at a flat rate of <strong>10¢ per mile</strong> — so distance isn't a reason to miss out.</p>
+        <a href="https://gas.hackclub.com/" target="_blank" class="btn btn-outline travel-btn">Apply on gas.hackclub.com →</a>
+      </div>
+    </div>
+
+    <div class="card-grid travel-card-grid">
+      <div class="ov-card">
+        <span class="ov-icon wobble-1">Who qualifies?</span>
+        <p>Any registered attendee who can't drive to The Aga Khan Academy. Buses and trains both count — just keep your ticket.</p>
+      </div>
+      <div class="ov-card">
+        <span class="ov-icon wobble-2">How much?</span>
+        <p>Hack Club reimburses at <strong>10 cents per mile</strong> of equivalent driving distance. So a 50-mile trip = ~$5 back in your pocket.</p>
+      </div>
+      <div class="ov-card">
+        <span class="ov-icon wobble-1">How to claim?</span>
+        <p>Visit <a href="https://gas.hackclub.com/" target="_blank" class="travel-link">gas.hackclub.com</a>, submit your trip details and receipt after the event, and Hack Club handles the rest.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -582,36 +497,35 @@
     <h2>Sponsor Blueprint</h2>
     <p class="section-lead">We can't run this event without community support. Your contribution can be processed as a CSR initiative focused on STEM Education.</p>
 
-    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-      <div class="ov-card" style="border-top: 4px solid white;">
-        <h3 style="color:white; font-size:22px; font-weight:800; font-family: var(--font-heading);">Community Partner</h3>
-        <p style="color: var(--bp-warning); font-weight: bold; font-size: 24px; margin-top: 5px; margin-bottom: 15px;">₹5,000+</p>
-        <p style="text-align:center; font-size: 14px;">Send your swag to students! Logo displayed on our merch & website.</p>
+    <div class="card-grid sponsor-tier-grid">
+      <div class="ov-card sponsor-tier-card" style="border-top: 4px solid white;">
+        <h3>Community Partner</h3>
+        <p class="tier-price">₹5,000+</p>
+        <p>Send your swag to students! Logo displayed on our merch &amp; website.</p>
       </div>
-      <div class="ov-card" style="border-top: 4px solid var(--bp-success);">
-        <h3 style="color:white; font-size:22px; font-weight:800; font-family: var(--font-heading);">Hardware Patron</h3>
-        <p style="color: var(--bp-warning); font-weight: bold; font-size: 24px; margin-top: 5px; margin-bottom: 15px;">₹10,000+</p>
-        <p style="text-align:center; font-size: 14px;">All previous perks plus an Opening Ceremony shout-out.</p>
+      <div class="ov-card sponsor-tier-card" style="border-top: 4px solid var(--bp-success);">
+        <h3>Hardware Patron</h3>
+        <p class="tier-price">₹10,000+</p>
+        <p>All previous perks plus an Opening Ceremony shout-out.</p>
       </div>
-      <div class="ov-card" style="border-top: 4px solid var(--bp-warning);">
-        <h3 style="color:white; font-size:22px; font-weight:800; font-family: var(--font-heading);">Innovation Lead</h3>
-        <p style="color: var(--bp-warning); font-weight: bold; font-size: 24px; margin-top: 5px; margin-bottom: 15px;">₹15,000+</p>
-        <p style="text-align:center; font-size: 14px;">All previous perks plus send technical mentors to the event.</p>
+      <div class="ov-card sponsor-tier-card" style="border-top: 4px solid var(--bp-warning);">
+        <h3>Innovation Lead</h3>
+        <p class="tier-price">₹15,000+</p>
+        <p>All previous perks plus send technical mentors to the event.</p>
       </div>
     </div>
 
-<div class="sponsor-grid">
-  <div class="sponsor"><img src="sponsor1.png" alt="Sponsor 1"></div>
-  <div class="sponsor"><img src="sponsor2.png" alt="Sponsor 2"></div>
-  <div class="sponsor"><img src="sponsor3.png" alt="Sponsor 3"></div>
-  <div class="sponsor"><img src="sponsor4.png" alt="Sponsor 4"></div>
-  <div class="sponsor"><img src="sponsor5.png" alt="Sponsor 5"></div>
-  <div class="sponsor"><img src="sponsor6.png" alt="Sponsor 6"></div>
-  
-</div>
+    <div class="sponsor-grid">
+      <div class="sponsor"><img src="sponsor1.png" alt="Sponsor 1"></div>
+      <div class="sponsor"><img src="sponsor2.png" alt="Sponsor 2"></div>
+      <div class="sponsor"><img src="sponsor3.png" alt="Sponsor 3"></div>
+      <div class="sponsor"><img src="sponsor4.png" alt="Sponsor 4"></div>
+      <div class="sponsor"><img src="sponsor5.png" alt="Sponsor 5"></div>
+      <div class="sponsor"><img src="sponsor6.png" alt="Sponsor 6"></div>
+    </div>
 
-    <div style="margin-top: 40px; font-size: 14px; opacity: 0.6; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-      <p>Blueprint is fiscally sponsored by The Hack Foundation, a registered 501(c)(3) non-profit organization. For local sponsors requiring Indian tax-deduction certificates (80G), we are happy to discuss routing the sponsorship through a local partner NGO. Email <strong><a href="mailto:hyderabad@blueprint.hackclub.com" style="color:var(--bp-warning); text-decoration:none;">hyderabad@blueprint.hackclub.com</a></strong> for our full Sponsorship Prospectus.</p>
+    <div class="sponsor-note">
+      <p>Blueprint is fiscally sponsored by The Hack Foundation, a registered 501(c)(3) non-profit organization. For local sponsors requiring Indian tax-deduction certificates (80G), we are happy to discuss routing the sponsorship through a local partner NGO. Email <strong><a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a></strong> for our full Sponsorship Prospectus.</p>
     </div>
   </div>
 </section>
@@ -628,19 +542,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      navLinks.classList.remove('open');
-    });
-  });
-</script>
 </body>
 </html>
