@@ -12,15 +12,17 @@
 </head>
 <body class="intro">
 
+<div class="scroll-progress" id="scrollProgress"></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
 <nav class="grid-bg">
-  <a href="#" class="nav-logo">
-    <span>BLUEPRINT AKAHYD</span>
-  </a>
+  <a href="#" class="nav-logo"><span>BLUEPRINT AKAHYD</span></a>
   <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#overview">Mission</a></li>
+    <li><a href="#prizes">Prizes</a></li>
     <li><a href="#agenda">Schedule</a></li>
     <li><a href="#activities">Activities</a></li>
     <li><a href="#organizers">Team</a></li>
@@ -33,54 +35,26 @@
 
 <section class="hero grid-bg">
   <p class="hero-label">Hack Club presents</p>
-  <img src="blueh.png" alt="Blueprint" style="max-width: 100%; width: 1200px; margin-bottom: 10px;" />
+  <img src="blueh.png" alt="Blueprint" style="max-width:100%;width:1200px;margin-bottom:10px;" />
   <div class="hero-subtitle">Hyderabad</div>
-  <p>
-    An intensive, 7-hour hardware engineering sprint. Design your first PCB, build a drone from scratch, and watch it fly.<br><br>
-    <strong>April 18th, 9:00 AM – 4:00 PM.</strong>
-  </p>
+  <p>An intensive, 7-hour hardware engineering sprint. Design your first PCB, build a drone from scratch, and watch it fly.<br><br><strong>April 18th, 9:00 AM – 4:00 PM.</strong></p>
   <div class="hero-grid-light"></div>
   <div class="hero-actions">
     <a href="#rsvp" class="btn btn-primary">Join Blueprint</a>
     <a href="#agenda" class="btn btn-outline">View Itinerary</a>
   </div>
   <div class="hero-countdown" aria-label="Event countdown">
-    <div class="date-cell">
-      <div class="date-cell-value" id="countdown-days">00</div>
-      <div class="date-cell-label">Days</div>
-    </div>
-    <div class="date-cell">
-      <div class="date-cell-value" id="countdown-hours">00</div>
-      <div class="date-cell-label">Hours</div>
-    </div>
-    <div class="date-cell">
-      <div class="date-cell-value" id="countdown-minutes">00</div>
-      <div class="date-cell-label">Min</div>
-    </div>
-    <div class="date-cell">
-      <div class="date-cell-value" id="countdown-seconds">00</div>
-      <div class="date-cell-label">Sec</div>
-    </div>
+    <div class="date-cell"><div class="date-cell-value" id="countdown-days">00</div><div class="date-cell-label">Days</div></div>
+    <div class="date-cell"><div class="date-cell-value" id="countdown-hours">00</div><div class="date-cell-label">Hours</div></div>
+    <div class="date-cell"><div class="date-cell-value" id="countdown-minutes">00</div><div class="date-cell-label">Min</div></div>
+    <div class="date-cell"><div class="date-cell-value" id="countdown-seconds">00</div><div class="date-cell-label">Sec</div></div>
   </div>
   <div class="date-strip">
-    <div class="date-cell">
-      <div class="date-cell-label">Date</div>
-      <div class="date-cell-value warn">Saturday, April 18</div>
-    </div>
-    <div class="date-cell">
-      <div class="date-cell-label">Location</div>
-      <div class="date-cell-value">Hyderabad, Telangana</div>
-    </div>
-    <div class="date-cell">
-      <div class="date-cell-label">Venue</div>
-      <div class="date-cell-value">
-        <a href="https://www.agakhanacademies.org/hyderabad" target="_blank" style="color:inherit; text-decoration:underline;">The Aga Khan Academy</a>
-      </div>
-    </div>
+    <div class="date-cell"><div class="date-cell-label">Date</div><div class="date-cell-value warn">Saturday, April 18</div></div>
+    <div class="date-cell"><div class="date-cell-label">Location</div><div class="date-cell-value">Hyderabad, Telangana</div></div>
+    <div class="date-cell"><div class="date-cell-label">Venue</div><div class="date-cell-value"><a href="https://www.agakhanacademies.org/hyderabad" target="_blank" style="color:inherit;text-decoration:underline;">The Aga Khan Academy</a></div></div>
   </div>
 </section>
-
-<!-- marquee injected here by JS -->
 
 <section class="section" id="overview">
   <div class="section-inner">
@@ -88,21 +62,60 @@
     <h2>Inspiring the next generation of makers<br>in Hyderabad.</h2>
     <p class="section-lead">Blueprint isn't just a workshop; it's a launchpad. A beginner-friendly day where students design PCBs, assemble drones, and leave with something real in their hands.</p>
     <div class="card-grid">
-      <div class="ov-card">
-        <span class="ov-icon wobble-1">Who?</span>
-        <p>Students aged 13 to 18 (inclusive). Whether you're a middle schooler or finishing high school, you're welcome. No prior experience needed.</p>
+      <div class="ov-card"><span class="ov-icon wobble-1">Who?</span><p>Students aged 13 to 18 (inclusive). Whether you're a middle schooler or finishing high school, you're welcome. No prior experience needed.</p></div>
+      <div class="ov-card"><span class="ov-icon wobble-2">Where?</span><p>The Aga Khan Academy, Hyderabad. Drone testing will be done safely in a designated fully-netted indoor zone.</p></div>
+      <div class="ov-card"><span class="ov-icon wobble-1">What?</span><p>A hands-on event covering PCB design with EasyEDA Pro and full drone assembly — from frame to first flight, all in one day.</p></div>
+      <div class="ov-card"><span class="ov-icon wobble-2">The Community</span><p>Part of Hack Club, a 501(c)(3) nonprofit empowering 50,000+ teenagers. For us, "hacking" means taking a box of parts and turning it into a flying machine.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIZES -->
+<section class="section" id="prizes">
+  <div class="section-inner">
+    <div class="section-label">Win Big</div>
+    <h2>42 people leave with<br>something to show for it.</h2>
+    <p class="section-lead">Every drone built is judged. The top teams walk away with prizes — and every runner-up still keeps their build.</p>
+    <div class="prizes-podium">
+      <div class="prize-card prize-gold">
+        <div class="prize-rank-label">Top 9 — Winning Teams</div>
+        <h3>Winners</h3>
+        <div class="prize-items">
+          <div class="prize-item"><div class="prize-item-dot"></div><div><strong>Keep Your Drone</strong><p>The drone you assembled is yours. Take it home, fly it, mod it indefinitely.</p></div></div>
+          <div class="prize-item"><div class="prize-item-dot"></div><div><strong>Free Domain Name</strong><p>A custom domain, fully funded — your first piece of internet real estate.</p></div></div>
+          <div class="prize-item"><div class="prize-item-dot"></div><div><strong>Winner's Certificate</strong><p>Signed recognition from Hack Club leadership. Goes on the resume.</p></div></div>
+        </div>
       </div>
-      <div class="ov-card">
-        <span class="ov-icon wobble-2">Where?</span>
-        <p>The Aga Khan Academy, Hyderabad. Drone testing will be done safely in a designated fully-netted indoor zone.</p>
+      <div class="prize-card prize-runner">
+        <div class="prize-rank-label">Next 33 — Runners-Up</div>
+        <h3>Runners-Up</h3>
+        <div class="prize-items">
+          <div class="prize-item"><div class="prize-item-dot"></div><div><strong>Keep Your Drone</strong><p>Your build, your drone. Every runner-up takes their machine home.</p></div></div>
+          <div class="prize-item"><div class="prize-item-dot"></div><div><strong>Participation Certificate</strong><p>Official recognition for completing a full drone build in one day.</p></div></div>
+        </div>
       </div>
-      <div class="ov-card">
-        <span class="ov-icon wobble-1">What?</span>
-        <p>A hands-on event covering PCB design with EasyEDA Pro and full drone assembly — from frame to first flight, all in one day.</p>
+    </div>
+    <p class="prize-note">Judging is based on flight stability, build quality, and a short presentation to mentors at the end of the day. All participants — winners, runners-up, and everyone else — receive a completion certificate.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section darker" id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">From the Community</div>
+    <h2>What teens say about<br>Hack Club Blueprint.</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I'd never touched a soldering iron before. By 4 PM I was flying something I built with my own hands. It was surreal."</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Shreya M.</div><div class="testimonial-event">Blueprint Delhi, 2025</div></div></div>
       </div>
-      <div class="ov-card">
-        <span class="ov-icon wobble-2">The Community</span>
-        <p>Part of Hack Club, a 501(c)(3) nonprofit empowering 50,000+ teenagers. For us, "hacking" means taking a box of parts and turning it into a flying machine.</p>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"The PCB workshop changed how I think about electronics. I went home and ordered three more boards that same week."</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">A</div><div><div class="testimonial-name">Arjun K.</div><div class="testimonial-event">Blueprint Bangalore, 2025</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Hack Club events are just different. Everyone's genuinely excited to build things. That energy is completely addictive."</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">P</div><div><div class="testimonial-name">Priya R.</div><div class="testimonial-event">Blueprint Mumbai, 2025</div></div></div>
       </div>
     </div>
   </div>
@@ -112,10 +125,7 @@
   <div class="section-inner safety-inner">
     <div class="section-label">Safety First</div>
     <h2>Strict Safety Protocols</h2>
-    <p class="section-lead">
-      Building drones involves high-discharge LiPo batteries and fast-spinning carbon propellers. We maintain a strict zero-tolerance policy for unsafe behavior.<br><br>
-      Protective eyewear is provided and mandatory during assembly. <strong>No propellers will be attached until the drone is inside the designated, fully-netted indoor testing zone.</strong> All test flights are supervised by trained mentors at all times.
-    </p>
+    <p class="section-lead">Building drones involves high-discharge LiPo batteries and fast-spinning carbon propellers. We maintain a strict zero-tolerance policy for unsafe behavior.<br><br>Protective eyewear is provided and mandatory during assembly. <strong>No propellers will be attached until the drone is inside the designated, fully-netted indoor testing zone.</strong> All test flights are supervised by trained mentors at all times.</p>
   </div>
 </section>
 
@@ -125,79 +135,14 @@
     <h2>The Detailed Itinerary</h2>
     <p class="section-lead">A massive day of engineering requires a tight schedule. Arrive on time!</p>
     <div class="agenda">
-
-      <div class="ag-item">
-        <div class="ag-time">08:30 AM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>Doors Open &amp; Kit Distribution</h4>
-          <p>Check-in at The Aga Khan Academy, set up your workstation, and receive your official Blueprint hardware kit and safety goggles.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">09:00 AM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>Opening Ceremony &amp; Safety Briefing</h4>
-          <p>Welcome to Blueprint! We'll cover the rules of the lab, safety protocols, and the mission for the day.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">09:30 AM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>PCB Design Workshop — Sponsored by EasyEDA Pro</h4>
-          <p>Design a real printed circuit board from scratch using EasyEDA Pro. Mentors guide you through the full process — no experience needed. Every attendee receives a <strong>$15 coupon</strong> to order their board delivered straight to their address.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">11:30 AM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>Drone Assembly Workshop</h4>
-          <p>Time to build. Mentors walk you through the anatomy of a drone — frame, motors, flight controller, and electronics — and you assemble it yourself from your hardware kit.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">01:00 PM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4 style="color: var(--bp-success);">Lunch &amp; Maker Networking</h4>
-          <p>A full catered lunch is provided. Step back, eat, and connect with fellow builders and the organizing team.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">02:00 PM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>Drone Assembly Continued</h4>
-          <p>Back to the build. Finish wiring, secure all connections, and get your drone flight-ready under mentor supervision.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">03:15 PM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>Drone Testing</h4>
-          <p>Move to the netted safety arena. Throttle up your build, observe how it flies, and troubleshoot any issues in real-time with your mentor.</p>
-        </div>
-      </div>
-
-      <div class="ag-item">
-        <div class="ag-time">04:00 PM</div>
-        <div class="ag-line"></div>
-        <div class="ag-body">
-          <h4>Snacks &amp; Closing Ceremony</h4>
-          <p>Grab some light snacks. Final Q&amp;A, completion certificates, group photo, and pack up.</p>
-        </div>
-      </div>
-
+      <div class="ag-item"><div class="ag-time">08:30 AM</div><div class="ag-line"></div><div class="ag-body"><h4>Doors Open &amp; Kit Distribution</h4><p>Check-in at The Aga Khan Academy, set up your workstation, and receive your official Blueprint hardware kit and safety goggles.</p></div></div>
+      <div class="ag-item"><div class="ag-time">09:00 AM</div><div class="ag-line"></div><div class="ag-body"><h4>Opening Ceremony &amp; Safety Briefing</h4><p>Welcome to Blueprint! We'll cover the rules of the lab, safety protocols, and the mission for the day.</p></div></div>
+      <div class="ag-item"><div class="ag-time">09:30 AM</div><div class="ag-line"></div><div class="ag-body"><h4>PCB Design Workshop — Sponsored by EasyEDA Pro</h4><p>Design a real printed circuit board from scratch using EasyEDA Pro. Mentors guide you through the full process. Every attendee receives a <strong>$15 coupon</strong> to order their board delivered straight to their address.</p></div></div>
+      <div class="ag-item"><div class="ag-time">11:30 AM</div><div class="ag-line"></div><div class="ag-body"><h4>Drone Assembly Workshop</h4><p>Time to build. Mentors walk you through every component — frame, motors, flight controller, and electronics — and you assemble it yourself from your hardware kit.</p></div></div>
+      <div class="ag-item"><div class="ag-time">01:00 PM</div><div class="ag-line"></div><div class="ag-body"><h4 style="color:var(--bp-success);">Lunch &amp; Maker Networking</h4><p>A full catered lunch is provided. Step back, eat, and connect with fellow builders and the organizing team.</p></div></div>
+      <div class="ag-item"><div class="ag-time">02:00 PM</div><div class="ag-line"></div><div class="ag-body"><h4>Drone Assembly Continued</h4><p>Back to the build. Finish wiring, secure all connections, and get your drone flight-ready under mentor supervision.</p></div></div>
+      <div class="ag-item"><div class="ag-time">03:15 PM</div><div class="ag-line"></div><div class="ag-body"><h4>Drone Testing &amp; Competition</h4><p>Move to the netted safety arena. Throttle up and compete. Judges evaluate flight stability, build quality, and a short presentation.</p></div></div>
+      <div class="ag-item"><div class="ag-time">04:00 PM</div><div class="ag-line"></div><div class="ag-body"><h4>Snacks, Prize Ceremony &amp; Closing</h4><p>Winners announced. Drones and domain prizes awarded on the spot. Certificates, group photo, and pack up.</p></div></div>
     </div>
   </div>
 </section>
@@ -208,18 +153,13 @@
     <h2>PCB Design with EasyEDA Pro</h2>
     <p class="section-lead">Two hours of hands-on PCB design — sponsored by EasyEDA Pro and completely free for every attendee.</p>
     <div class="card-grid pcb-card-grid">
-      <div class="ov-card pcb-card-success">
-        <span class="ov-icon wobble-1">What you'll do</span>
-        <p>Design a real printed circuit board from scratch using EasyEDA Pro — a professional-grade tool used in industry. Mentors guide you step by step. No prior electronics experience needed.</p>
-      </div>
-      <div class="ov-card pcb-card-warning">
-        <span class="ov-icon wobble-2">What you'll get</span>
-        <p>Every attendee walks away with a <strong>$15 coupon</strong> to order their designed PCB delivered straight to their address — fully funded by EasyEDA Pro. Your first real PCB, on us.</p>
-      </div>
+      <div class="ov-card pcb-card-success"><span class="ov-icon wobble-1">What you'll do</span><p>Design a real printed circuit board from scratch using EasyEDA Pro — a professional-grade tool used in industry. Mentors guide you step by step. No prior electronics experience needed.</p></div>
+      <div class="ov-card pcb-card-warning"><span class="ov-icon wobble-2">What you'll get</span><p>Every attendee walks away with a <strong>$15 coupon</strong> to order their designed PCB delivered straight to their address — fully funded by EasyEDA Pro. Your first real PCB, on us.</p></div>
     </div>
   </div>
 </section>
 
+<!-- RSVP -->
 <section class="section grid-bg darker" id="rsvp">
   <div class="section-inner">
     <div class="section-label">Sign Up!</div>
@@ -233,14 +173,31 @@
           <div class="perk"><div class="perk-mark"></div>Lunch &amp; snacks included</div>
           <div class="perk"><div class="perk-mark"></div>Design your first PCB with EasyEDA Pro</div>
           <div class="perk"><div class="perk-mark"></div>$15 coupon to order your PCB to your door</div>
+          <div class="perk"><div class="perk-mark"></div>Compete to win drones &amp; free domains</div>
           <div class="perk"><div class="perk-mark"></div>Meet fellow Hyderabad makers</div>
+        </div>
+        <div class="cal-actions">
+          <div class="cal-label">Add to calendar</div>
+          <div class="cal-buttons">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Blueprint+Hyderabad+%E2%80%94+Hack+Club&dates=20260418T030000Z/20260418T103000Z&details=A+free+hardware+hackathon+for+teens.+PCBs,+drones,+prizes.&location=The+Aga+Khan+Academy,+Hyderabad" target="_blank" class="cal-btn">Google Calendar</a>
+            <a href="data:text/calendar;charset=utf-8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260418T030000Z%0ADTEND:20260418T103000Z%0ASUMMARY:Blueprint+Hyderabad+-+Hack+Club%0ADESCRIPTION:Free+hardware+hackathon+for+teens+13-18.%0ALOCATION:The+Aga+Khan+Academy%2C+Hyderabad%0AEND:VEVENT%0AEND:VCALENDAR" download="blueprint-hyderabad.ics" class="cal-btn">Apple / ICS</a>
+          </div>
         </div>
       </div>
       <div class="rsvp-box">
         <h3>Ready to build?</h3>
         <p>Click below to register. Spots for hardware kits are extremely limited!</p>
-        <a href="https://blueprint.hackclub.com/guilds/invite/hyderabad-in" target="_blank" class="btn btn-primary">Register Now</a>
+        <a href="https://blueprint.hackclub.com/guilds/invite/hyderabad-in" target="_blank" class="btn btn-primary" id="registerBtn">Register Now</a>
         <p class="rsvp-note">Strictly for teenagers aged 13-18.</p>
+        <div class="share-section">
+          <div class="share-label">Spread the word</div>
+          <div class="share-buttons">
+            <a href="https://wa.me/?text=Build+a+drone+from+scratch+%F0%9F%9A%81+Blueprint+Hyderabad+by+Hack+Club+is+FREE+on+April+18th.+Register%3A+https%3A%2F%2Fblueprint.hackclub.com%2Fguilds%2Finvite%2Fhyderabad-in" target="_blank" class="share-btn share-wa">WhatsApp</a>
+            <a href="https://twitter.com/intent/tweet?text=Building+drones+from+scratch+%F0%9F%9A%81+Blueprint+Hyderabad+by+%40HackClub+is+a+FREE+hardware+event+on+April+18.+Sign+up%3A+https%3A%2F%2Fblueprint.hackclub.com%2Fguilds%2Finvite%2Fhyderabad-in" target="_blank" class="share-btn share-tw">Twitter / X</a>
+            <button class="share-btn share-copy" id="copyLinkBtn">Copy Link</button>
+          </div>
+        </div>
+        <div class="friend-nudge">Hardware is more fun with a teammate — bring a friend!</div>
       </div>
     </div>
   </div>
@@ -251,115 +208,30 @@
     <div class="section-label">Event Council</div>
     <h2>Meet the Team</h2>
     <p class="section-lead">The people who made Blueprint happen.</p>
-
     <div class="org-grid">
-      <div class="org-card">
-        <div class="org-pfp"><img src="ap.png" alt="Azmeer Pirani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Azmeer Pirani</div>
-        <div class="org-post">Director General</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="am.png" alt="Aliahad" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Aliahad</div>
-        <div class="org-post">Director of Logistics</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="aa.png" alt="Ayan Andani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Ayan Andani</div>
-        <div class="org-post">Director of Marketing</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="nn.png" alt="Niza Nurani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Niza Nurani</div>
-        <div class="org-post">Director of Outreach</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="ia.png" alt="Iliyan Ashwani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Iliyan Ashwani</div>
-        <div class="org-post">Director of Finance</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="av.png" alt="Arman Vadsaria" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Arman Vadsaria</div>
-        <div class="org-post">Director of Security</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="hn.png" alt="Haricharan Nalamoni" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Haricharan Nalamoni</div>
-        <div class="org-post">Director of IT</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="sm.png" alt="Siham Merchant" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Siham Merchant</div>
-        <div class="org-post">Director of Communication</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="sc.png" alt="Srishti Chandrani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Srishti Chandrani</div>
-        <div class="org-post">Director of Registrations</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="as.png" alt="Allaina Surani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Allaina Surani</div>
-        <div class="org-post">Director of Inventory</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="qp.png" alt="Quincy Parvez" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Quincy Parvez</div>
-        <div class="org-post">Director of Admin</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="rc.png" alt="Rishi Charania" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Rishi Charania</div>
-        <div class="org-post">Director of Workshops</div>
-      </div>
-      <div class="org-card">
-        <div class="org-pfp"><img src="ak.png" alt="Ayaan Karani" class="org-pfp-img" loading="lazy"></div>
-        <div class="org-name">Ayaan Karani</div>
-        <div class="org-post">Director of Transport</div>
-      </div>
+      <div class="org-card"><div class="org-pfp"><img src="ap.png" alt="Azmeer Pirani" loading="lazy"></div><div class="org-name">Azmeer Pirani</div><div class="org-post">Director General</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="am.png" alt="Aliahad" loading="lazy"></div><div class="org-name">Aliahad</div><div class="org-post">Director of Logistics</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="aa.png" alt="Ayan Andani" loading="lazy"></div><div class="org-name">Ayan Andani</div><div class="org-post">Director of Marketing</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="nn.png" alt="Niza Nurani" loading="lazy"></div><div class="org-name">Niza Nurani</div><div class="org-post">Director of Outreach</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="ia.png" alt="Iliyan Ashwani" loading="lazy"></div><div class="org-name">Iliyan Ashwani</div><div class="org-post">Director of Finance</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="av.png" alt="Arman Vadsaria" loading="lazy"></div><div class="org-name">Arman Vadsaria</div><div class="org-post">Director of Security</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="hn.png" alt="Haricharan Nalamoni" loading="lazy"></div><div class="org-name">Haricharan Nalamoni</div><div class="org-post">Director of IT</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="sm.png" alt="Siham Merchant" loading="lazy"></div><div class="org-name">Siham Merchant</div><div class="org-post">Director of Communication</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="sc.png" alt="Srishti Chandrani" loading="lazy"></div><div class="org-name">Srishti Chandrani</div><div class="org-post">Director of Registrations</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="as.png" alt="Allaina Surani" loading="lazy"></div><div class="org-name">Allaina Surani</div><div class="org-post">Director of Inventory</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="qp.png" alt="Quincy Parvez" loading="lazy"></div><div class="org-name">Quincy Parvez</div><div class="org-post">Director of Admin</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="rc.png" alt="Rishi Charania" loading="lazy"></div><div class="org-name">Rishi Charania</div><div class="org-post">Director of Workshops</div></div>
+      <div class="org-card"><div class="org-pfp"><img src="ak.png" alt="Ayaan Karani" loading="lazy"></div><div class="org-name">Ayaan Karani</div><div class="org-post">Director of Transport</div></div>
     </div>
-
     <div class="subteam-section">
       <div class="subteam-label">Supporting Teams</div>
       <div class="subteam-grid">
-        <div class="subteam-card">
-          <h4>Logistics Team</h4>
-          <ul>
-            <li>Kevin Khoja</li>
-            <li>Shayaan Pirani</li>
-            <li>Rehan Khoja</li>
-            <li>Neehan Maknojia</li>
-            <li>Aymaan Maknojia</li>
-          </ul>
-        </div>
-        <div class="subteam-card">
-          <h4>IT Team</h4>
-          <ul>
-            <li>Bantei Marwein</li>
-            <li>Niharika</li>
-            <li>Vishnu</li>
-            <li>Arhan Manji</li>
-            <li>Rizaan</li>
-          </ul>
-        </div>
-        <div class="subteam-card">
-          <h4>Workshop Leaders</h4>
-          <ul>
-            <li>Khafis Parmar</li>
-            <li>Rabil Ramani</li>
-            <li>Arhaan Manji</li>
-          </ul>
-        </div>
-        <div class="subteam-card">
-          <h4>Photographers</h4>
-          <ul>
-            <li>Adin Lalani</li>
-          </ul>
-        </div>
+        <div class="subteam-card"><h4>Logistics Team</h4><ul><li>Kevin Khoja</li><li>Shayaan Pirani</li><li>Rehan Khoja</li><li>Neehan Maknojia</li><li>Aymaan Maknojia</li></ul></div>
+        <div class="subteam-card"><h4>IT Team</h4><ul><li>Bantei Marwein</li><li>Niharika</li><li>Vishnu</li><li>Arhan Manji</li><li>Rizaan</li></ul></div>
+        <div class="subteam-card"><h4>Workshop Leaders</h4><ul><li>Khafis Parmar</li><li>Rabil Ramani</li><li>Arhaan Manji</li><li>Ayaan Karani</li></ul></div>
+        <div class="subteam-card"><h4>Photographers</h4><ul><li>Adin Lalani</li></ul></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -367,104 +239,36 @@
   <div class="section-inner">
     <div class="section-label">FAQ</div>
     <h2>Common questions</h2>
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button class="faq-q">What is Blueprint Hyderabad? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>A free, 1-day hardware event where you design your first PCB using EasyEDA Pro and build a drone from scratch. Part of Hack Club Blueprint, a global program by <a href="https://hackclub.com" target="_blank">Hack Club</a>, a nonprofit with 50,000+ teen makers. <a href="https://blueprint.hackclub.com" target="_blank">Learn more.</a></p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Do I need prior experience? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Not at all. This event is designed for beginners. Mentors guide you through every step of both the PCB workshop and the drone build.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What should I bring? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Bring a laptop and its charger — you'll need it for the EasyEDA Pro PCB workshop. All drone parts, tools, and safety gear are provided.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What is the EasyEDA Pro workshop? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>A 2-hour sponsored session where you design a real PCB from scratch using EasyEDA Pro. Every attendee receives a <strong>$15 coupon</strong> to order their board delivered to their address — fully funded by EasyEDA Pro. No electronics experience needed.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Where is the venue? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>The Aga Khan Academy, Hyderabad. <a href="https://www.agakhanacademies.org/hyderabad" target="_blank">View on map.</a></p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Is it safe? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Safety is our top priority. Protective eyewear is mandatory during assembly. No propellers are attached until the drone is inside the fully-netted indoor testing zone, and all flights are supervised by trained mentors.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What about parental guidance? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Students are supervised by trained mentors and organizers at all times. No consent form is required. Parents are welcome to contact us at <a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a> with any questions.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Will food be provided? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Yes — a full catered lunch at 1:00 PM and light snacks at 4:00 PM. Let the organizers know in advance if you have dietary restrictions.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Can I come with a team? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Absolutely. You can come with friends or find a team on the day. Hardware is a team sport, especially when troubleshooting a drone build.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">What if I don't finish? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>No worries. The goal is to get you started. You'll have the community, resources, and momentum to keep building long after the event ends.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Is it really free? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Yes, 100% free. Hack Club funds us per attendee. You pay nothing.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q">Who do I contact if I have more questions? <span class="faq-arrow">▾</span></button>
-        <div class="faq-a"><br>
-          <p>Email us at <a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a> or reply to your registration confirmation.</p>
-        </div>
-      </div>
-
+    <div class="faq-search-wrap">
+      <span class="faq-search-icon"></span>
+      <input type="text" class="faq-search" id="faqSearch" placeholder="Search questions…" autocomplete="off" />
     </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item" data-q="what is blueprint hyderabad hackathon event"><button class="faq-q">What is Blueprint Hyderabad? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>A free, 1-day hardware event where you design your first PCB using EasyEDA Pro and build a drone from scratch. Part of Hack Club Blueprint, a global program by <a href="https://hackclub.com" target="_blank">Hack Club</a>, a nonprofit with 50,000+ teen makers. <a href="https://blueprint.hackclub.com" target="_blank">Learn more.</a></p></div></div>
+      <div class="faq-item" data-q="prior experience beginner no skill"><button class="faq-q">Do I need prior experience? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Not at all. This event is designed for beginners. Mentors guide you through every step of both the PCB workshop and the drone build.</p></div></div>
+      <div class="faq-item" data-q="what should i bring laptop charger"><button class="faq-q">What should I bring? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Bring a laptop and its charger — you'll need it for the EasyEDA Pro PCB workshop. All drone parts, tools, and safety gear are provided.</p></div></div>
+      <div class="faq-item" data-q="easyeda pcb workshop coupon $15"><button class="faq-q">What is the EasyEDA Pro workshop? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>A 2-hour sponsored session where you design a real PCB from scratch using EasyEDA Pro. Every attendee receives a <strong>$15 coupon</strong> to order their board — fully funded by EasyEDA Pro.</p></div></div>
+      <div class="faq-item" data-q="venue location aga khan academy map"><button class="faq-q">Where is the venue? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>The Aga Khan Academy, Hyderabad. <a href="https://www.agakhanacademies.org/hyderabad" target="_blank">View on map.</a></p></div></div>
+      <div class="faq-item" data-q="safe safety propellers lipo battery"><button class="faq-q">Is it safe? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Safety is our top priority. Protective eyewear is mandatory. No propellers are attached until inside the fully-netted indoor testing zone, and all flights are supervised by trained mentors.</p></div></div>
+      <div class="faq-item" data-q="parents parental consent guardian"><button class="faq-q">What about parental guidance? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Students are supervised by trained mentors at all times. No consent form is required. Parents can contact us at <a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a>.</p></div></div>
+      <div class="faq-item" data-q="food lunch catered dietary"><button class="faq-q">Will food be provided? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Yes — a full catered lunch at 1:00 PM and light snacks at 4:00 PM. Let the organizers know in advance about dietary restrictions.</p></div></div>
+      <div class="faq-item" data-q="prizes win domain drone competition winning"><button class="faq-q">What can I win? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>The winning team keeps their drone and wins free domain names for each member. Runner-up also receives free domains. All participants receive a completion certificate. See the Prizes section for full details.</p></div></div>
+      <div class="faq-item" data-q="team friends come together group"><button class="faq-q">Can I come with a team? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Absolutely. You can come with friends or find a team on the day. Hardware is a team sport, especially when troubleshooting a drone build.</p></div></div>
+      <div class="faq-item" data-q="what if dont finish incomplete time"><button class="faq-q">What if I don't finish? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>No worries. The goal is to get you started. You'll have the community, resources, and momentum to keep building long after the event ends.</p></div></div>
+      <div class="faq-item" data-q="is it free cost money pay"><button class="faq-q">Is it really free? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Yes, 100% free. Hack Club funds us per attendee. You pay nothing.</p></div></div>
+      <div class="faq-item" data-q="contact questions email help"><button class="faq-q">Who do I contact if I have more questions? <span class="faq-arrow"></span></button><div class="faq-a"><br><p>Email us at <a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a> or reply to your registration confirmation.</p></div></div>
+    </div>
+    <div class="faq-no-results" id="faqNoResults">No questions match that search.</div>
   </div>
 </section>
 
-<!-- second marquee injected here by JS -->
+<!-- marquee injected before sponsors by JS -->
 
 <section class="section darker" id="travel">
   <div class="section-inner">
     <div class="section-label">Hack Club Gas</div>
     <h2>Travel Reimbursement</h2>
     <p class="section-lead">Can't drive to Blueprint? Hack Club's got your bus or train fare covered.</p>
-
     <div class="travel-hero-card">
       <div class="travel-hero-icon">🚌</div>
       <div class="travel-hero-text">
@@ -473,20 +277,10 @@
         <a href="https://gas.hackclub.com/" target="_blank" class="btn btn-outline travel-btn">Apply on gas.hackclub.com →</a>
       </div>
     </div>
-
     <div class="card-grid travel-card-grid">
-      <div class="ov-card">
-        <span class="ov-icon wobble-1">Who qualifies?</span>
-        <p>Any registered attendee who can't drive to The Aga Khan Academy. Buses and trains both count — just keep your ticket.</p>
-      </div>
-      <div class="ov-card">
-        <span class="ov-icon wobble-2">How much?</span>
-        <p>Hack Club reimburses at <strong>10 cents per mile</strong> of equivalent driving distance. So a 50-mile trip = ~$5 back in your pocket.</p>
-      </div>
-      <div class="ov-card">
-        <span class="ov-icon wobble-1">How to claim?</span>
-        <p>Visit <a href="https://gas.hackclub.com/" target="_blank" class="travel-link">gas.hackclub.com</a>, submit your trip details and receipt after the event, and Hack Club handles the rest.</p>
-      </div>
+      <div class="ov-card"><span class="ov-icon wobble-1">Who qualifies?</span><p>Any registered attendee who can't drive to The Aga Khan Academy. Buses and trains both count — just keep your ticket.</p></div>
+      <div class="ov-card"><span class="ov-icon wobble-2">How much?</span><p>Hack Club reimburses at <strong>10 cents per mile</strong> of equivalent driving distance. A 50-mile trip = ~$5 back in your pocket.</p></div>
+      <div class="ov-card"><span class="ov-icon wobble-1">How to claim?</span><p>Visit <a href="https://gas.hackclub.com/" target="_blank" class="travel-link">gas.hackclub.com</a>, submit your trip details and receipt after the event, and Hack Club handles the rest.</p></div>
     </div>
   </div>
 </section>
@@ -496,25 +290,11 @@
     <div class="section-label">Partner With Us</div>
     <h2>Sponsor Blueprint</h2>
     <p class="section-lead">We can't run this event without community support. Your contribution can be processed as a CSR initiative focused on STEM Education.</p>
-
     <div class="card-grid sponsor-tier-grid">
-      <div class="ov-card sponsor-tier-card" style="border-top: 4px solid white;">
-        <h3>Community Partner</h3>
-        <p class="tier-price">₹5,000+</p>
-        <p>Send your swag to students! Logo displayed on our merch &amp; website.</p>
-      </div>
-      <div class="ov-card sponsor-tier-card" style="border-top: 4px solid var(--bp-success);">
-        <h3>Hardware Patron</h3>
-        <p class="tier-price">₹10,000+</p>
-        <p>All previous perks plus an Opening Ceremony shout-out.</p>
-      </div>
-      <div class="ov-card sponsor-tier-card" style="border-top: 4px solid var(--bp-warning);">
-        <h3>Innovation Lead</h3>
-        <p class="tier-price">₹15,000+</p>
-        <p>All previous perks plus send technical mentors to the event.</p>
-      </div>
+      <div class="ov-card sponsor-tier-card" style="border-top:4px solid white;"><h3>Community Partner</h3><p class="tier-price">₹5,000+</p><p>Send your swag to students! Logo displayed on our merch &amp; website.</p></div>
+      <div class="ov-card sponsor-tier-card" style="border-top:4px solid var(--bp-success);"><h3>Hardware Patron</h3><p class="tier-price">₹10,000+</p><p>All previous perks plus an Opening Ceremony shout-out.</p></div>
+      <div class="ov-card sponsor-tier-card" style="border-top:4px solid var(--bp-warning);"><h3>Innovation Lead</h3><p class="tier-price">₹15,000+</p><p>All previous perks plus send technical mentors to the event.</p></div>
     </div>
-
     <div class="sponsor-grid">
       <div class="sponsor"><img src="sponsor1.png" alt="Sponsor 1"></div>
       <div class="sponsor"><img src="sponsor2.png" alt="Sponsor 2"></div>
@@ -523,7 +303,6 @@
       <div class="sponsor"><img src="sponsor5.png" alt="Sponsor 5"></div>
       <div class="sponsor"><img src="sponsor6.png" alt="Sponsor 6"></div>
     </div>
-
     <div class="sponsor-note">
       <p>Blueprint is fiscally sponsored by The Hack Foundation, a registered 501(c)(3) non-profit organization. For local sponsors requiring Indian tax-deduction certificates (80G), we are happy to discuss routing the sponsorship through a local partner NGO. Email <strong><a href="mailto:hyderabad@blueprint.hackclub.com">hyderabad@blueprint.hackclub.com</a></strong> for our full Sponsorship Prospectus.</p>
     </div>
@@ -541,6 +320,7 @@
   </div>
 </footer>
 
+<canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99999;display:none;"></canvas>
 <script src="script.js"></script>
 </body>
 </html>

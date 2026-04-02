@@ -3,12 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── INTRO ANIMATION ───────────────────────────────────────────
   const introEls = Array.from(document.querySelectorAll('body *:not(script):not(style)'));
   introEls.forEach(el => el.classList.add('intro-item'));
-
   window.setTimeout(() => {
     introEls.forEach((el, i) => {
-      window.setTimeout(() => {
-        el.classList.add('entered');
-      }, i * 30);
+      window.setTimeout(() => el.classList.add('entered'), i * 30);
     });
     document.body.classList.remove('intro');
   }, 120);
@@ -20,17 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(dot);
 
   let mx = -100, my = -100;
-
   document.addEventListener('mousemove', e => {
-    mx = e.clientX;
-    my = e.clientY;
+    mx = e.clientX; my = e.clientY;
     dot.style.left = mx + 'px';
     dot.style.top  = my + 'px';
   });
-
   document.querySelectorAll('a, button, .btn').forEach(el => {
     el.addEventListener('mouseenter', () => dot.classList.add('hovering'));
     el.addEventListener('mouseleave', () => dot.classList.remove('hovering'));
+  });
+
+
+  // ─── SCROLL PROGRESS BAR ──────────────────────────────────────
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (scrolled / maxScroll * 100) + '%';
+  }, { passive: true });
+
+
+  // ─── BACK TO TOP ──────────────────────────────────────────────
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
 
@@ -45,11 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero');
   if (hero) {
     hero.addEventListener('mousemove', e => {
-      const rect = hero.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top)  / rect.height) * 100;
-      hero.style.setProperty('--cursor-x', `${x}%`);
-      hero.style.setProperty('--cursor-y', `${y}%`);
+      const r = hero.getBoundingClientRect();
+      hero.style.setProperty('--cursor-x', `${((e.clientX - r.left) / r.width) * 100}%`);
+      hero.style.setProperty('--cursor-y', `${((e.clientY - r.top)  / r.height) * 100}%`);
     });
     hero.addEventListener('mouseleave', () => {
       hero.style.setProperty('--cursor-x', '50%');
@@ -57,75 +68,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  ['.hero-countdown', '.date-strip'].forEach(sel => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--cursor-x', `${((e.clientX - r.left) / r.width) * 100}%`);
+      el.style.setProperty('--cursor-y', `${((e.clientY - r.top)  / r.height) * 100}%`);
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.setProperty('--cursor-x', '50%');
+      el.style.setProperty('--cursor-y', '50%');
+    });
+  });
+
 
   // ─── COUNTDOWN ─────────────────────────────────────────────────
-  const countdown = document.querySelector('.hero-countdown');
-  if (countdown) {
-    countdown.addEventListener('mousemove', e => {
-      const r = countdown.getBoundingClientRect();
-      countdown.style.setProperty('--cursor-x', `${((e.clientX - r.left) / r.width) * 100}%`);
-      countdown.style.setProperty('--cursor-y', `${((e.clientY - r.top)  / r.height) * 100}%`);
-    });
-    countdown.addEventListener('mouseleave', () => {
-      countdown.style.setProperty('--cursor-x', '50%');
-      countdown.style.setProperty('--cursor-y', '50%');
-    });
+  function setVal(el, val) {
+    const str = String(val).padStart(2, '0');
+    if (el.textContent !== str) {
+      el.classList.add('flipping');
+      setTimeout(() => { el.textContent = str; el.classList.remove('flipping'); }, 150);
+    }
   }
 
-  const dateStrip = document.querySelector('.date-strip');
-  if (dateStrip) {
-    dateStrip.addEventListener('mousemove', e => {
-      const r = dateStrip.getBoundingClientRect();
-      dateStrip.style.setProperty('--cursor-x', `${((e.clientX - r.left) / r.width) * 100}%`);
-      dateStrip.style.setProperty('--cursor-y', `${((e.clientY - r.top)  / r.height) * 100}%`);
-    });
-    dateStrip.addEventListener('mouseleave', () => {
-      dateStrip.style.setProperty('--cursor-x', '50%');
-      dateStrip.style.setProperty('--cursor-y', '50%');
-    });
-  }
-
-  // digit flip on tick
   function updateHeroTimer() {
-    const target     = new Date('2026-04-18T09:00:00');
-    const now        = new Date();
-    const diff       = target - now;
-    const daysEl     = document.getElementById('countdown-days');
-    const hoursEl    = document.getElementById('countdown-hours');
-    const minutesEl  = document.getElementById('countdown-minutes');
-    const secondsEl  = document.getElementById('countdown-seconds');
-
+    const target = new Date('2026-04-18T09:00:00');
+    const diff   = target - new Date();
+    const daysEl = document.getElementById('countdown-days');
     if (!daysEl) return;
-
     if (diff <= 0) {
-      [daysEl, hoursEl, minutesEl, secondsEl].forEach(el => el.textContent = '00');
+      ['countdown-days','countdown-hours','countdown-minutes','countdown-seconds'].forEach(id => {
+        document.getElementById(id).textContent = '00';
+      });
       clearInterval(timerInterval);
       return;
     }
-
-    const total   = Math.floor(diff / 1000);
-    const days    = Math.floor(total / 86400);
-    const hours   = Math.floor((total % 86400) / 3600);
-    const minutes = Math.floor((total % 3600) / 60);
-    const seconds = total % 60;
-
-    function setVal(el, val) {
-      const str = String(val).padStart(2, '0');
-      if (el.textContent !== str) {
-        el.classList.add('flipping');
-        setTimeout(() => {
-          el.textContent = str;
-          el.classList.remove('flipping');
-        }, 150);
-      }
-    }
-
-    setVal(daysEl, days);
-    setVal(hoursEl, hours);
-    setVal(minutesEl, minutes);
-    setVal(secondsEl, seconds);
+    const total = Math.floor(diff / 1000);
+    setVal(document.getElementById('countdown-days'),    Math.floor(total / 86400));
+    setVal(document.getElementById('countdown-hours'),   Math.floor((total % 86400) / 3600));
+    setVal(document.getElementById('countdown-minutes'), Math.floor((total % 3600) / 60));
+    setVal(document.getElementById('countdown-seconds'), total % 60);
   }
-
   const timerInterval = setInterval(updateHeroTimer, 1000);
   updateHeroTimer();
 
@@ -139,6 +123,29 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isOpen) item.classList.add('open');
     });
   });
+
+
+  // ─── FAQ SEARCH ────────────────────────────────────────────────
+  const faqSearch    = document.getElementById('faqSearch');
+  const faqNoResults = document.getElementById('faqNoResults');
+
+  if (faqSearch) {
+    faqSearch.addEventListener('input', () => {
+      const query = faqSearch.value.toLowerCase().trim();
+      const items = document.querySelectorAll('.faq-item');
+      let visibleCount = 0;
+
+      items.forEach(item => {
+        const keywords  = (item.dataset.q || '').toLowerCase();
+        const question  = item.querySelector('.faq-q').textContent.toLowerCase();
+        const matches   = !query || keywords.includes(query) || question.includes(query);
+        item.classList.toggle('hidden', !matches);
+        if (matches) visibleCount++;
+      });
+
+      faqNoResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    });
+  }
 
 
   // ─── SMOOTH SCROLL ─────────────────────────────────────────────
@@ -180,13 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.ag-item, .ov-card, .org-card, .subteam-card, .faq-item, .sponsor').forEach((el, i) => {
+  document.querySelectorAll('.ag-item, .ov-card, .org-card, .subteam-card, .faq-item, .sponsor, .anatomy-card, .prize-card, .testimonial-card').forEach((el, i) => {
     el.classList.add('reveal');
-    if (i % 4 === 1) el.classList.add('reveal-delay-1');
-    if (i % 4 === 2) el.classList.add('reveal-delay-2');
-    if (i % 4 === 3) el.classList.add('reveal-delay-3');
+    if (i % 3 === 1) el.classList.add('reveal-delay-1');
+    if (i % 3 === 2) el.classList.add('reveal-delay-2');
     revealObserver.observe(el);
   });
 
@@ -201,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     btn.addEventListener('mouseleave', e => {
       btn.style.transform = '';
-      // ripple
       const ripple = document.createElement('div');
       ripple.className = 'ripple-el';
       const r = btn.getBoundingClientRect();
@@ -225,38 +230,92 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // ─── INFINITE MARQUEE (sponsors only) ─────────────────────────
-  function buildMarquee(items, reverse = false) {
-    const section = document.createElement('div');
-    section.className = 'marquee-section';
-    const track = document.createElement('div');
-    track.className = 'marquee-track' + (reverse ? ' reverse' : '');
-    [...items, ...items].forEach(text => {
-      const span = document.createElement('div');
-      span.className = 'marquee-item';
-      const highlight = text.includes('PCB') || text.includes('DRONE') || text.includes('HACK CLUB') || text.includes('FREE');
-      span.innerHTML = `<span class="dot"></span>${highlight ? `<span class="highlight">${text}</span>` : text}`;
-      track.appendChild(span);
+  // ─── COPY LINK BUTTON ─────────────────────────────────────────
+  const copyBtn = document.getElementById('copyLinkBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('https://blueprint.hackclub.com/guilds/invite/hyderabad-in').then(() => {
+        copyBtn.textContent = '✓ Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy Link';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      });
     });
-    section.appendChild(track);
-    return section;
   }
 
-  const marqueeItems2 = [
-    'BUILD SOMETHING REAL', 'AGES 13–18', 'NO EXPERIENCE NEEDED',
-    'LET IT FLY', 'ELECTRONICS', 'MENTORS INCLUDED', 'LUNCH PROVIDED',
-    'NETTED ARENA', 'LIPO BATTERY', 'CARBON PROPS', 'OPEN SOURCE', 'STEM'
-  ];
 
-  const sponsorsSection = document.getElementById('sponsors');
-  if (sponsorsSection) {
-    sponsorsSection.before(buildMarquee(marqueeItems2, true));
+  // ─── CONFETTI on REGISTER CLICK ───────────────────────────────
+  const registerBtn = document.getElementById('registerBtn');
+  const canvas      = document.getElementById('confettiCanvas');
+
+  if (registerBtn && canvas) {
+    registerBtn.addEventListener('click', () => {
+      fireConfetti(canvas);
+    });
+  }
+
+  function fireConfetti(canvas) {
+    canvas.style.display = 'block';
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext('2d');
+
+    const COLORS = ['#ffc857','#a8f0ae','#fe8e86','#ffffff','#7ec8e3'];
+    const pieces = [];
+
+    for (let i = 0; i < 140; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: -10 - Math.random() * 200,
+        w: 8 + Math.random() * 8,
+        h: 4 + Math.random() * 4,
+        r: Math.random() * Math.PI * 2,
+        dr: (Math.random() - 0.5) * 0.2,
+        vx: (Math.random() - 0.5) * 4,
+        vy: 2 + Math.random() * 4,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        opacity: 1,
+      });
+    }
+
+    let frame;
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      pieces.forEach(p => {
+        p.x  += p.vx;
+        p.y  += p.vy;
+        p.r  += p.dr;
+        p.vy += 0.08; // gravity
+        if (p.y > canvas.height * 0.7) p.opacity -= 0.025;
+        if (p.opacity <= 0) return;
+        alive = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.r);
+        ctx.globalAlpha = Math.max(0, p.opacity);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+
+      if (alive) {
+        frame = requestAnimationFrame(draw);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.style.display = 'none';
+        cancelAnimationFrame(frame);
+      }
+    }
+    draw();
   }
 
 
   // ─── NAV ACTIVE LINK on SCROLL ────────────────────────────────
-  const sections    = document.querySelectorAll('section[id]');
-  const navAnchors  = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections   = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -267,7 +326,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.35 });
-
   sections.forEach(s => sectionObserver.observe(s));
+
+
+  // ─── INFINITE MARQUEE (before sponsors) ───────────────────────
+  function buildMarquee(items, reverse = false) {
+    const section = document.createElement('div');
+    section.className = 'marquee-section';
+    const track = document.createElement('div');
+    track.className = 'marquee-track' + (reverse ? ' reverse' : '');
+    [...items, ...items].forEach(text => {
+      const span = document.createElement('div');
+      span.className = 'marquee-item';
+      const highlight = ['PCB','DRONE','HACK CLUB','FREE','PRIZES','DOMAIN'].some(k => text.includes(k));
+      span.innerHTML = `<span class="dot"></span>${highlight ? `<span class="highlight">${text}</span>` : text}`;
+      track.appendChild(span);
+    });
+    section.appendChild(track);
+    return section;
+  }
+
+  const marqueeItems = [
+    'BUILD SOMETHING REAL', 'AGES 13–18', 'NO EXPERIENCE NEEDED',
+    'LET IT FLY', 'ELECTRONICS', 'MENTORS INCLUDED', 'LUNCH PROVIDED',
+    'NETTED ARENA', 'WIN A DRONE', 'FREE DOMAIN PRIZES', 'OPEN SOURCE', 'STEM'
+  ];
+
+  const sponsorsSection = document.getElementById('sponsors');
+  if (sponsorsSection) {
+    sponsorsSection.before(buildMarquee(marqueeItems, true));
+  }
 
 });
