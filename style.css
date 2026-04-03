@@ -620,3 +620,24 @@ footer { background: var(--bp-darker); border-top: 1px solid rgba(255,255,255,0.
 .glitch-text.glitching::before { color: var(--bp-danger); clip-path: polygon(0 20%, 100% 20%, 100% 45%, 0 45%); transform: translateX(-2px); opacity: 0.8; animation: glitch-anim 0.2s steps(2) forwards; }
 .glitch-text.glitching::after { color: var(--bp-success); clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); transform: translateX(2px); opacity: 0.8; animation: glitch-anim 0.2s steps(2) 0.05s forwards; }
 @keyframes glitch-anim { 0% { transform: translateX(-3px); } 50% { transform: translateX(3px); } 100% { transform: translateX(0); opacity: 0; } }
+
+.logo-img {
+  height: 150px; /* bigger logo */
+  width: auto;
+  transform-origin: left top; /* pivot from left */
+  transition: transform 0.4s ease;
+   transform: translate(12px, -6px);
+  
+}
+
+/* rotate DOWN instead of up */
+.nav-logo:hover .logo-img {
+  transform: rotate(12deg); /* positive = downward tilt */
+}
+
+
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(-14deg); }
+  100% { transform: rotate(-10deg); }
+}
