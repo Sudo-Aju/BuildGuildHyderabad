@@ -1,14 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ─── INTRO ANIMATION ───────────────────────────────────────────
-  const introEls = Array.from(document.querySelectorAll('body *:not(script):not(style)'));
-  introEls.forEach(el => el.classList.add('intro-item'));
-  window.setTimeout(() => {
-    introEls.forEach((el, i) => {
-      window.setTimeout(() => el.classList.add('entered'), i * 30);
-    });
-    document.body.classList.remove('intro');
-  }, 120);
+  // ─── PAGE LOADER ────────────────────────────────────────────────
+  const loader = document.getElementById('pageLoader');
+  if (loader) {
+    // Wait for fill animation then fade out
+    setTimeout(() => {
+      loader.classList.add('done');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        // Trigger intro after loader
+        startIntro();
+      }, 650);
+    }, 1500);
+  } else {
+    startIntro();
+  }
+
+  function startIntro() {
+    // ─── INTRO ANIMATION ─────────────────────────────────────────
+    const introEls = Array.from(document.querySelectorAll('body *:not(script):not(style):not(.page-loader):not(.page-loader *)'));
+    introEls.forEach(el => el.classList.add('intro-item'));
+    window.setTimeout(() => {
+      introEls.forEach((el, i) => {
+        window.setTimeout(() => el.classList.add('entered'), i * 18);
+      });
+      document.body.classList.remove('intro');
+    }, 60);
+  }
+
+
+  // ─── AMBIENT BACKGROUND LIGHT ──────────────────────────────────
+  const ambientBg = document.createElement('div');
+  ambientBg.className = 'ambient-bg';
+  document.body.prepend(ambientBg);
+
+  let targetX = 50, targetY = 50;
+  let currentX = 50, currentY = 50;
+  let rafAmbient;
+
+  document.addEventListener('mousemove', e => {
+    targetX = (e.clientX / window.innerWidth) * 100;
+    targetY = (e.clientY / window.innerHeight) * 100;
+  }, { passive: true });
+
+  function animateAmbient() {
+    // Smooth lerp — this is what makes it feel "behind" the cursor
+    currentX += (targetX - currentX) * 0.06;
+    currentY += (targetY - currentY) * 0.06;
+    ambientBg.style.setProperty('--mouse-x', currentX + '%');
+    ambientBg.style.setProperty('--mouse-y', currentY + '%');
+    ambientBg.style.background = `radial-gradient(
+      600px circle at ${currentX}% ${currentY}%,
+      rgba(255,200,87,0.045) 0%,
+      rgba(14,48,91,0.02) 40%,
+      transparent 70%
+    )`;
+    rafAmbient = requestAnimationFrame(animateAmbient);
+  }
+  animateAmbient();
 
 
   // ─── MINIMAL CURSOR DOT ────────────────────────────────────────
@@ -187,13 +236,38 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08 });
 
-  document.querySelectorAll('.ag-item, .ov-card, .org-card, .subteam-card, .faq-item, .sponsor, .anatomy-card, .prize-card, .testimonial-card').forEach((el, i) => {
-    el.classList.add('reveal');
-    if (i % 3 === 1) el.classList.add('reveal-delay-1');
-    if (i % 3 === 2) el.classList.add('reveal-delay-2');
+  document.querySelectorAll('.ag-item, .ov-card, .org-card, .subteam-card, .faq-item, .sponsor, .anatomy-card, .prize-card, .testimonial-card, .pcb-step, .pcb-rules-card').forEach((el, i) => {
+    if (!el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+      if (i % 3 === 1) el.classList.add('reveal-delay-1');
+      if (i % 3 === 2) el.classList.add('reveal-delay-2');
+    }
     revealObserver.observe(el);
+  });
+
+  // Also observe existing .reveal elements
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+  // ─── 3D TILT CARDS ─────────────────────────────────────────────
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const x  = e.clientX - r.left;
+      const y  = e.clientY - r.top;
+      const cx = r.width  / 2;
+      const cy = r.height / 2;
+      const rx = ((y - cy) / cy) * -8;   // tilt X axis
+      const ry = ((x - cx) / cx) *  8;   // tilt Y axis
+      card.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(6px)`;
+      card.style.boxShadow = `${-ry * 0.8}px ${rx * 0.8}px 30px rgba(0,0,0,0.35)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
   });
 
 
@@ -235,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
       navigator.clipboard.writeText('https://blueprint.hackclub.com/guilds/invite/hyderabad-in').then(() => {
-        copyBtn.textContent = '✓ Copied!';
+        copyBtn.textContent = 'Copied!';
         copyBtn.classList.add('copied');
         setTimeout(() => {
           copyBtn.textContent = 'Copy Link';
@@ -288,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
         p.x  += p.vx;
         p.y  += p.vy;
         p.r  += p.dr;
-        p.vy += 0.08; // gravity
+        p.vy += 0.08;
         if (p.y > canvas.height * 0.7) p.opacity -= 0.025;
         if (p.opacity <= 0) return;
         alive = true;
@@ -329,6 +403,9 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(s => sectionObserver.observe(s));
 
 
+  
+
+
   // ─── INFINITE MARQUEE (before sponsors) ───────────────────────
   function buildMarquee(items, reverse = false) {
     const section = document.createElement('div');
@@ -338,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [...items, ...items].forEach(text => {
       const span = document.createElement('div');
       span.className = 'marquee-item';
-      const highlight = ['PCB','DRONE','HACK CLUB','FREE','PRIZES','DOMAIN'].some(k => text.includes(k));
+      const highlight = ['PCB','DRONE','HACK CLUB','FREE','PRIZES','DOMAIN','PCB BATTLE'].some(k => text.includes(k));
       span.innerHTML = `<span class="dot"></span>${highlight ? `<span class="highlight">${text}</span>` : text}`;
       track.appendChild(span);
     });
@@ -349,12 +426,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const marqueeItems = [
     'BUILD SOMETHING REAL', 'AGES 13–18', 'NO EXPERIENCE NEEDED',
     'LET IT FLY', 'ELECTRONICS', 'MENTORS INCLUDED', 'LUNCH PROVIDED',
-    'NETTED ARENA', 'WIN A DRONE', 'FREE DOMAIN PRIZES', 'OPEN SOURCE', 'STEM'
+    'CRICKET FIELD ARENA', 'WIN A DRONE', 'FREE DOMAIN PRIZES',
+    'PCB BATTLE', '100×100MM SHOWDOWN', 'OPEN SOURCE', 'STEM'
   ];
 
   const sponsorsSection = document.getElementById('sponsors');
   if (sponsorsSection) {
     sponsorsSection.before(buildMarquee(marqueeItems, true));
   }
+
+
+  // ─── PCB STEP ENTRANCE with stagger ──────────────────────────
+  const pcbStepObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = (i * 0.08) + 's';
+        entry.target.classList.add('revealed');
+        pcbStepObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.pcb-step').forEach(el => {
+    pcbStepObserver.observe(el);
+  });
 
 });
